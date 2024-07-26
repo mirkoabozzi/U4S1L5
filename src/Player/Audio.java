@@ -4,25 +4,27 @@ import interfaces.Play;
 import interfaces.Volume;
 
 public class Audio extends ElementoMultimediale implements Volume, Play {
-    private int volume;
     private int durata;
+    private int volume;
 
     public Audio(String titolo, int durata, int volume) {
         super(titolo);
-        this.volume = volume;
         this.durata = durata;
+        this.volume = volume;
     }
 
 
     @Override
     public void alzaVolume() {
-        this.volume = +1;
-
+        this.volume++;
+        System.out.println("Il volume é " + this.volume);
     }
 
     @Override
     public void abbassaVolume() {
-        this.volume = -1;
+
+        this.volume--;
+        System.out.println("Il volume é " + this.volume);
     }
 
     @Override
