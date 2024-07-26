@@ -20,7 +20,7 @@ public class Video extends ElementoMultimediale implements Volume, Play, Luminos
     @Override
     public void play() {
         for (int i = 0; i < this.durata; i++) {
-            System.out.println(this.getTitolo() + show() + luminosita());
+            System.out.println(this.getTitolo() + mostraVolume() + luminosita());
         }
 
     }
@@ -39,7 +39,7 @@ public class Video extends ElementoMultimediale implements Volume, Play, Luminos
     }
 
     @Override
-    public String show() {
+    public String mostraVolume() {
         String volume = "";
         for (int i = 0; i < this.volume; i++) {
             volume += "!";

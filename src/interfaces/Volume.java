@@ -5,6 +5,6 @@ public interface Volume {
 
     public void abbassaVolume();
 
-    public String show();
+    public String mostraVolume();
 }
 

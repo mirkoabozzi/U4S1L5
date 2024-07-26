@@ -28,7 +28,7 @@ public class Audio extends ElementoMultimediale implements Volume, Play {
     }
 
     @Override
-    public String show() {
+    public String mostraVolume() {
         String volume = "";
         for (int i = 0; i < this.volume; i++) {
             volume += "!";
@@ -41,7 +41,7 @@ public class Audio extends ElementoMultimediale implements Volume, Play {
     @Override
     public void play() {
         for (int i = 0; i < this.durata; i++) {
-            System.out.println(this.getTitolo() + show());
+            System.out.println(this.getTitolo() + mostraVolume());
         }
     }
 
