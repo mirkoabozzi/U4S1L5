@@ -41,4 +41,12 @@ public class Audio extends ElementoMultimediale implements Volume, Play {
             System.out.println(this.getTitolo() + mostraVolume());
         }
     }
+
+    @Override
+    public String toString() {
+        return "Audio{" +
+                "durata=" + durata +
+                ", volume=" + volume +
+                '}';
+    }
 }

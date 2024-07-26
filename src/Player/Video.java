@@ -65,4 +65,13 @@ public class Video extends ElementoMultimediale implements Volume, Play, Luminos
         this.luminosita--;
         System.out.println("Ho impostato la luminosità a " + this.luminosita);
     }
+
+    @Override
+    public String toString() {
+        return "Video{" +
+                "durata=" + durata +
+                ", volume=" + volume +
+                ", luminosita=" + luminosita +
+                '}';
+    }
 }

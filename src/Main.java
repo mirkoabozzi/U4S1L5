@@ -64,17 +64,15 @@ public class Main {
                         break;
                 }
             }
-            System.out.println(elementoMultimediale[i].getTitolo());
+            //System.out.println(elementoMultimediale[i].getTitolo());
         }
         System.out.println(Arrays.toString(elementoMultimediale));
 
         while (true) {
             System.out.println("Cosa vuoi riprodurre?");
-            System.out.println("1 " + elementoMultimediale[0].getTitolo());
-            System.out.println("2 " + elementoMultimediale[1].getTitolo());
-            System.out.println("3 " + elementoMultimediale[2].getTitolo());
-            System.out.println("4 " + elementoMultimediale[3].getTitolo());
-            System.out.println("5 " + elementoMultimediale[4].getTitolo());
+            for (int i = 0; i < elementoMultimediale.length; i++) {
+                System.out.println("1 " + elementoMultimediale[i].getTitolo());
+            }
             int scelta = scanner.nextInt();
             if (scelta == 0) {
                 System.out.println("Grazie per essere stato con noi!");
@@ -82,8 +80,7 @@ public class Main {
             } else {
                 if (elementoMultimediale[scelta - 1] instanceof Audio) {
                     ((Play) elementoMultimediale[scelta - 1]).play();
-                }
-                if (elementoMultimediale[scelta - 1] instanceof Video) {
+                } else if (elementoMultimediale[scelta - 1] instanceof Video) {
                     ((Play) elementoMultimediale[scelta - 1]).play();
                 } else {
                     ((Immagine) elementoMultimediale[scelta - 1]).show();
