@@ -2,6 +2,7 @@ import Player.Audio;
 import Player.ElementoMultimediale;
 import Player.Immagine;
 import Player.Video;
+import interfaces.Play;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -61,18 +62,40 @@ public class Main {
                         System.out.println("Il tipo inserito non è corretto inserisci un tipo corretto");
                         i--;
                         break;
-
                 }
-
             }
             System.out.println(elementoMultimediale[i].getTitolo());
         }
         System.out.println(Arrays.toString(elementoMultimediale));
 
+        while (true) {
+            System.out.println("Cosa vuoi riprodurre?");
+            System.out.println("1 " + elementoMultimediale[0].getTitolo());
+            System.out.println("2 " + elementoMultimediale[1].getTitolo());
+            System.out.println("3 " + elementoMultimediale[2].getTitolo());
+            System.out.println("4 " + elementoMultimediale[3].getTitolo());
+            System.out.println("5 " + elementoMultimediale[4].getTitolo());
+            int scelta = scanner.nextInt();
+            if (scelta == 0) {
+                System.out.println("Grazie per essere stato con noi!");
+                break;
+            } else {
+                if (elementoMultimediale[scelta - 1] instanceof Audio) {
+                    ((Play) elementoMultimediale[scelta - 1]).play();
+                }
+                if (elementoMultimediale[scelta - 1] instanceof Video) {
+                    ((Play) elementoMultimediale[scelta - 1]).play();
+                } else {
+                    ((Immagine) elementoMultimediale[scelta - 1]).show();
+                }
+            }
+        }
+        scanner.close();
     }
 
     public static ElementoMultimediale audio() {
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Inserisci il titolo");
         String titolo = scanner.nextLine();
 
@@ -81,6 +104,7 @@ public class Main {
 
         System.out.println("Inserisci volume");
         int volume = scanner.nextInt();
+
         Audio audio = new Audio(titolo, durata, volume);
         audio.play();
         audio.abbassaVolume();
@@ -90,6 +114,7 @@ public class Main {
 
     public static ElementoMultimediale video() {
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Inserisci il titolo");
         String titolo = scanner.nextLine();
 
@@ -99,11 +124,13 @@ public class Main {
         System.out.println("Inserisci volume");
         int volume = scanner.nextInt();
 
-        System.out.println("Inserisci la luminosita");
+        System.out.println("Inserisci la luminosità");
         int luminosita = scanner.nextInt();
         Video video = new Video(titolo, durata, volume, luminosita);
         video.play();
-        video.abbassaVolume();
+        video.alzaVolume();
+        video.alzaLuminosita();
+        System.out.println(video.luminosita());
         System.out.println(video.mostraVolume());
         return video;
     }
@@ -113,13 +140,13 @@ public class Main {
         System.out.println("Inserisci il titolo");
         String titolo = scanner.nextLine();
 
-        System.out.println("Inserisci la luminosita");
+        System.out.println("Inserisci la luminosità");
         int luminosita = scanner.nextInt();
 
         Immagine immagine = new Immagine(titolo, luminosita);
         immagine.show();
         immagine.abbassaLuminosita();
+        System.out.println(immagine.luminosita());
         return immagine;
     }
-
 }

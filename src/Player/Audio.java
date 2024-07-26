@@ -13,18 +13,16 @@ public class Audio extends ElementoMultimediale implements Volume, Play {
         this.volume = volume;
     }
 
-
     @Override
     public void alzaVolume() {
         this.volume++;
-        System.out.println("Il volume é " + this.volume);
+        System.out.println("Ho impostato il volume a " + this.volume);
     }
 
     @Override
     public void abbassaVolume() {
-
         this.volume--;
-        System.out.println("Il volume é " + this.volume);
+        System.out.println("Ho impostato il volume a " + this.volume);
     }
 
     @Override
@@ -34,7 +32,6 @@ public class Audio extends ElementoMultimediale implements Volume, Play {
             volume += "!";
         }
         return volume;
-
     }
 
 
@@ -44,5 +41,4 @@ public class Audio extends ElementoMultimediale implements Volume, Play {
             System.out.println(this.getTitolo() + mostraVolume());
         }
     }
-
 }

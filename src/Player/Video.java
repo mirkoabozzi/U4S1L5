@@ -22,20 +22,18 @@ public class Video extends ElementoMultimediale implements Volume, Play, Luminos
         for (int i = 0; i < this.durata; i++) {
             System.out.println(this.getTitolo() + mostraVolume() + luminosita());
         }
-
     }
 
     @Override
     public void alzaVolume() {
         this.volume++;
-        System.out.println("Il volume é " + this.volume);
-
+        System.out.println("Ho impostato il volume a " + this.volume);
     }
 
     @Override
     public void abbassaVolume() {
         this.volume--;
-        System.out.println("Il volume é " + this.volume);
+        System.out.println("Ho impostato il volume a " + this.volume);
     }
 
     @Override
@@ -54,18 +52,17 @@ public class Video extends ElementoMultimediale implements Volume, Play, Luminos
             luminosita += "*";
         }
         return luminosita;
-
     }
 
     @Override
     public void alzaLuminosita() {
         this.luminosita++;
-        System.out.println("La luminosità é " + this.luminosita);
+        System.out.println("Ho impostato la luminosità a " + this.luminosita);
     }
 
     @Override
     public void abbassaLuminosita() {
         this.luminosita--;
-        System.out.println("La luminosità é " + this.luminosita);
+        System.out.println("Ho impostato la luminosità a " + this.luminosita);
     }
 }

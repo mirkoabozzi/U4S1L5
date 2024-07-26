@@ -28,12 +28,12 @@ public class Immagine extends ElementoMultimediale implements Luminosita {
     @Override
     public void alzaLuminosita() {
         this.luminosita++;
-        System.out.println("La luminosità é " + this.luminosita);
+        System.out.println("Ho impostato la luminosità a " + this.luminosita);
     }
 
     @Override
     public void abbassaLuminosita() {
         this.luminosita--;
-        System.out.println("La luminosità é " + this.luminosita);
+        System.out.println("Ho impostato la luminosità a " + this.luminosita);
     }
 }
