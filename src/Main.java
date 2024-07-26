@@ -15,6 +15,7 @@ public class Main {
 
         Audio audio1 = new Audio(titolo, durata, volume);
         audio1.play();
-        audio1.alzaVolume();
+        //audio1.volume();
+
     }
 }
