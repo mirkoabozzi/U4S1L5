@@ -4,6 +4,7 @@ import Player.Immagine;
 import Player.Video;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -41,24 +42,30 @@ public class Main {
         ElementoMultimediale[] elementoMultimediale = new ElementoMultimediale[5];
 
         for (int i = 0; i < elementoMultimediale.length; i++) {
-            System.out.println("Che tipo di file vuoi riprodurre?");
+            System.out.println("Che tipo di file vuoi riprodurre? Inserisci un tipo tra i seguenti: audio video immagine");
             String tipo = scanner.nextLine();
+            if (Objects.equals(tipo, "0")) {
+                break;
+            } else {
+                switch (tipo) {
+                    case "audio":
+                        elementoMultimediale[i] = audio();
+                        break;
+                    case "video":
+                        elementoMultimediale[i] = video();
+                        break;
+                    case "immagine":
+                        elementoMultimediale[i] = immagine();
+                        break;
+                    default:
+                        System.out.println("Il tipo inserito non è corretto inserisci un tipo corretto");
+                        i--;
+                        break;
 
-            switch (tipo) {
-                case "audio":
-                    elementoMultimediale[i] = audio();
-                    break;
-                case "video":
-                    elementoMultimediale[i] = video();
-                    break;
-                case "immagine":
-                    elementoMultimediale[i] = immagine();
-                    break;
-                default:
-                    break;
+                }
 
             }
-
+            System.out.println(elementoMultimediale[i].getTitolo());
         }
         System.out.println(Arrays.toString(elementoMultimediale));
 
@@ -76,6 +83,8 @@ public class Main {
         int volume = scanner.nextInt();
         Audio audio = new Audio(titolo, durata, volume);
         audio.play();
+        audio.abbassaVolume();
+        System.out.println(audio.mostraVolume());
         return audio;
     }
 
@@ -94,6 +103,8 @@ public class Main {
         int luminosita = scanner.nextInt();
         Video video = new Video(titolo, durata, volume, luminosita);
         video.play();
+        video.abbassaVolume();
+        System.out.println(video.mostraVolume());
         return video;
     }
 
@@ -107,6 +118,7 @@ public class Main {
 
         Immagine immagine = new Immagine(titolo, luminosita);
         immagine.show();
+        immagine.abbassaLuminosita();
         return immagine;
     }
 
